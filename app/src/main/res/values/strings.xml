@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Assault map</string>
+    <string-array name="opcoes_filtro">
+        <item>Últimas 24h</item>
+        <item>Última semana</item>
+        <item>Último mês</item>
+        <item>Últimos 90 dias</item>
+    </string-array>
+
+</resources>
