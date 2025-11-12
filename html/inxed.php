@@ -2,9 +2,9 @@
 include_once "../includes/_header.php"
 ?>   
     
-
-
-    <script src="../script/script.js"></script>    
+    <main>
+        <a href="../html/mapView.php">Mapa</a>
+    </main>
 
 <?php 
 include_once "../includes/_footer.php"

@@ -1,0 +1,29 @@
+* {
+    font-family: Arial;
+}
+
+div {
+    color: white;
+}
+
+body {
+    background-color: black;
+}
+
+#map {
+    height: 80vh;
+    width: 100%;
+}
+
+.ativado {
+    background: green;
+    color: white;
+}
+.desativado {
+    background: red;
+    color: white;
+}
+
+.poput button {
+    margin: 4px;
+}
