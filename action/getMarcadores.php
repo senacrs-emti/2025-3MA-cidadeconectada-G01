@@ -1,16 +1,25 @@
 <?php
-header("Content-Type: application/json");
+include_once("../includes/_connection.php");
 
-$con = new mysqli("localhost", "root", "", "bancoAssault");
+$tempo = $_GET["tempo"] ?? 1;
+$tempo = intval($tempo);
 
-$tempo = $_GET["tempo"] ?? "1 HOUR";
-
-$stmt = $con->prepare("SELECT latitude, longitude FROM denuncias WHERE data_registro >= NOW() - INTERVAL $tempo");
+$query = "
+    SELECT latitude, longitude 
+    FROM localizacoes 
+    WHERE data_hora >= NOW() - INTERVAL ? HOUR
+";
+$stmt = $conn->prepare($query);
+$stmt->bind_param("i", $tempo);
 $stmt->execute();
+
 $result = $stmt->get_result();
 
-echo json_encode($result->fetch_all(MYSQLI_ASSOC));
+// gera HTML simples para cada marcador
+while ($row = $result->fetch_assoc()) {
+    echo $row["latitude"] . "," . $row["longitude"] . ";";
+}
 
 $stmt->close();
-$con->close();
+$conn->close();
 ?>

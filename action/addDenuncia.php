@@ -1,17 +1,24 @@
-<?php 
-header("Content-Type": aplication/json);
-$data = json_decode(file_get_contents("php://input"), true);
+<?php
+include_once("../includes/_connection.php");
 
-$lat = $data["lat"];
-$lng = $data["lng"];
+$lat = $_POST["lat"] ?? null;
+$lng = $_POST["lng"] ?? null;
 
-$con = new mysqli("localhost", "root", "", "bancoAssault");
+if (!$lat || !$lng) {
+    echo "Erro: coordenadas inválidas.";
+    exit;
+}
 
-$stmt = $con->prepare("INSERT INTO denuncias (data_registro, latitude, longitude) VALUES (NOW(), ?, ?)");
+$stmt = $conn->prepare("INSERT INTO localizacoes (data_hora, latitude, longitude) VALUES (NOW(), ?, ?)");
 $stmt->bind_param("dd", $lat, $lng);
 $stmt->execute();
 
-$stmt->close();
-$con->close();
+if ($stmt->affected_rows > 0) {
+    echo "OK";
+} else {
+    echo "Erro ao registrar.";
+}
 
+$stmt->close();
+$conn->close();
 ?>

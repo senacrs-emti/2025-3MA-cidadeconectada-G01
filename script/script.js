@@ -66,17 +66,22 @@ map.on("click", (e) => {
         };
 
         document.getElementById("confirmar").onclick = () => {
+            const formData = new FormData();
+            formData.append("lat", lat);
+            formData.append("lng", lng);
+
             fetch("../action/addDenuncia.php", {
                 method: "POST",
-                headers: {"Content-Type": "application/json" },
-                body: JSON.stringify({ lat, lng})
-            }).then(() => {
-                alert("denuncia registrada!");
+	            body: formData
+            })
+            .then(res => res.text())
+            .then(resp => {
+                alert(resp === "OK" ? "Denúncia registrada!" : resp);
                 carregarMarcadores();
                 map.removeLayer(pinTemporario);
                 pinTemporario = null;
                 denunciaAtiva = false;
-                btnDenuncia.className = "Denúncia: OFF";
+                btnDenuncia.textContent = "Denúncia: OFF";
                 btnDenuncia.className = "btn-toggle desativado";
             });
         };
@@ -84,15 +89,29 @@ map.on("click", (e) => {
 });
     
 // Carregar marcadores
-function carregarMarcadores(tempo = 1){
+function carregarMarcadores(tempo = 1) {
     fetch(`../action/getMarcadores.php?tempo=${tempo}`)
-        .then(res => res.json())
-        .then(data => {
-            data.forEach(p => {
-                L.marker([p.latitude, p.longitude]).addTo(map);
+        .then(res => res.text())
+        .then(texto => {
+            // limpa marcadores antigos (exceto o do usuário)
+            map.eachLayer(layer => {
+                if (layer instanceof L.Marker && layer !== userMarker) {
+                    map.removeLayer(layer);
+                }
+            });
+
+            // separa os pontos retornados
+            const pontos = texto.split(";").filter(l => l.trim() !== "");
+
+            pontos.forEach(ponto => {
+                const [lat, lng] = ponto.split(",");
+                if (lat && lng) {
+                    L.marker([parseFloat(lat), parseFloat(lng)]).addTo(map);
+                }
             });
         });
 }
+
 
 // Filtro
 filterButtons.forEach(btn => {
@@ -107,7 +126,7 @@ filterButtons.forEach(btn => {
 // Botão centralizar
 btnLocalizar.addEventListener("click", () => {
     if (userMarker) {
-        map.setView(userMarker.getLatLng(), 17);
+        map.setView(userMarker.getLatLng(), 16);
     }
 });
 
