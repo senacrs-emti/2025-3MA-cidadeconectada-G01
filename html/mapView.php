@@ -11,6 +11,9 @@
 <body>
 
     <div class="topbar">
+        <a href="./index.php">
+            <button>Home</button>
+        </a>
         <button id="btnDenuncia" class="btn-toggle">Denúncia: OFF</button>
         <button id="btnLocalizar" class="btn-center">Centralizar Usuário</button>
         <div id="statusText">Clique em "Denúncia" para marcar um local</div>
@@ -28,7 +31,7 @@
     </div>
 
     <div class="osm-licence">
-        Tiles OpenStreetMap contributors — uso educativo
+        Tiles OpenStreetMap contributors - uso educativo
     </div>
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
