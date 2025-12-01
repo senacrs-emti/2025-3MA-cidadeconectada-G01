@@ -18,14 +18,14 @@ include_once "../includes/_connection.php";
         <div style="margin-bottom: 1vh; margin-top: 1vh;">
             <?php if (isset($_SESSION['usuario_id'])): ?>
                 <span style="color: white; margin-right:8px;">Olá, <?php echo htmlspecialchars($_SESSION['usuario_nome']); ?></span>
-                <a href="../action/logout.php"><button>Logout</button></a>
+                <a href="../action/logout.php"><button class="btn-index">Logout</button></a>
             <?php else: ?>
-                <a href="login.php"><button>Entrar</button></a>
-                <a href="register.php"><button>Cadastre-se</button></a>
+                <a href="login.php"><button class="btn-index">Entrar</button></a>
+                <a href="register.php"><button class="btn-index">Cadastre-se</button></a>
             <?php endif; ?>
         </div>
-        <button id="btnDenuncia" class="btn-toggle">Denúncia: OFF</button>
-        <button id="btnLocalizar" class="btn-center">Centralizar Usuário</button>
+        <button id="btnDenuncia" class="btn-toggle btn-index">Denúncia: OFF</button>
+        <button id="btnLocalizar" class="btn-center btn-index">Centralizar Usuário</button>
         <div id="statusText" class="p">Clique em "Denúncia" para marcar um local</div>
     </div>
 
@@ -34,11 +34,11 @@ include_once "../includes/_connection.php";
     <div class="filter-bar">
         <label>Filtrar por tempo:</label>
         <br>
-        <button data-tempo="1" class="filter-btn active">1 Hora</button>
-        <button data-tempo="24" class="filter-btn">1 Dia</button>
-        <button data-tempo="168" class="filter-btn">7 Dias</button>
-        <button data-tempo="720" class="filter-btn">30 Dias</button>
-        <button data-tempo="2160" class="filter-btn">90 Dias</button>
+        <button data-tempo="1" class="filter-btn active btn-index">1 Hora</button>
+        <button data-tempo="24" class="filter-btn btn-index">1 Dia</button>
+        <button data-tempo="168" class="filter-btn btn-index">7 Dias</button>
+        <button data-tempo="720" class="filter-btn btn-index">30 Dias</button>
+        <button data-tempo="2160" class="filter-btn btn-index">90 Dias</button>
     </div>
 
 

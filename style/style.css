@@ -2,7 +2,7 @@
     font-family: Arial;
 }
 
-div {
+.topbar div {
     color: white;
 }
 
@@ -29,17 +29,32 @@ body {
         height: 6vh;
         font-weight: bold;
     }
+    .leaflet-popup-close-button {
+        font-size: 28px;
+        width: 32px;
+        height: 32px;
+        line-height: 32px;
+    }
+
+    .leaflet-popup-content {
+        font-size: 2.4vh;
+    }
+
+    .leaflet-popup-content p,
+    .leaflet-popup-content span {
+        font-size: 2.4vh;
+    }
 } @media screen and(min-width:600px){
     button{
     height: 3.5vh;
 }
 }
 
-button {
+.btn-index {
     background: white;
     padding: 0px 1vh 0 1vh;
     border-radius: 12px;
-    border: white 1px solid;
+    border: solid 1px white;
 }
 
 .active {
@@ -57,6 +72,19 @@ button {
     color: white;
 }
 
-.poput button {
+.popup button {
     margin: 4px;
+}
+
+#cancelar {
+    border-radius: 12px;
+    background: rgb(255, 255, 255);
+    border: 1px solid rgb(24, 127, 245);
+    color: rgb(24, 127, 245);
+}
+#confirmar {
+    border-radius: 12px;
+    background: rgb(24, 127, 245);
+    color: white;
+    border: 0px;
 }

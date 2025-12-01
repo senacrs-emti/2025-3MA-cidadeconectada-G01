@@ -29,7 +29,7 @@ const filterButtons = document.querySelectorAll(".filter-btn");
 btnDenuncia.addEventListener("click", () => {
     denunciaAtiva = !denunciaAtiva;
     btnDenuncia.textContent = denunciaAtiva ? "Denúncia: ON" : "Denúncia: OFF";
-    btnDenuncia.className = denunciaAtiva ? "btn-toggle ativado" : "btn-toggle desativado";
+    btnDenuncia.className = denunciaAtiva ? "btn-toggle btn-index ativado" : "btn-toggle btn-index desativado";
 
     if(!denunciaAtiva && pinTemporario) {
         map.removeLayer(pinTemporario);
