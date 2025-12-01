@@ -15,13 +15,7 @@ include_once "../includes/_connection.php";
 <body>
 
     <div class="topbar">
-        <a href="./index.php">
-            <button>Home</button>
-        </a>
-        <button id="btnDenuncia" class="btn-toggle">Denúncia: OFF</button>
-        <button id="btnLocalizar" class="btn-center">Centralizar Usuário</button>
-        <div id="statusText">Clique em "Denúncia" para marcar um local</div>
-        <div style="margin-left: 10px;">
+        <div style="margin-bottom: 1vh; margin-top: 1vh;">
             <?php if (isset($_SESSION['usuario_id'])): ?>
                 <span style="color: white; margin-right:8px;">Olá, <?php echo htmlspecialchars($_SESSION['usuario_nome']); ?></span>
                 <a href="../action/logout.php"><button>Logout</button></a>
@@ -30,12 +24,16 @@ include_once "../includes/_connection.php";
                 <a href="register.php"><button>Cadastre-se</button></a>
             <?php endif; ?>
         </div>
+        <button id="btnDenuncia" class="btn-toggle">Denúncia: OFF</button>
+        <button id="btnLocalizar" class="btn-center">Centralizar Usuário</button>
+        <div id="statusText" class="p">Clique em "Denúncia" para marcar um local</div>
     </div>
 
     <div id="map"></div>
 
     <div class="filter-bar">
         <label>Filtrar por tempo:</label>
+        <br>
         <button data-tempo="1" class="filter-btn active">1 Hora</button>
         <button data-tempo="24" class="filter-btn">1 Dia</button>
         <button data-tempo="168" class="filter-btn">7 Dias</button>
@@ -43,9 +41,6 @@ include_once "../includes/_connection.php";
         <button data-tempo="2160" class="filter-btn">90 Dias</button>
     </div>
 
-    <div class="osm-licence">
-        &#169; Tiles OpenStreetMap contributors - uso educativo
-    </div>
 
     <script>
         // variáveis injetadas do PHP
