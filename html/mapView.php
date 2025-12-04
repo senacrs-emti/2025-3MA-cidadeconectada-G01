@@ -31,8 +31,16 @@ include_once "../includes/_connection.php";
 
     <div id="map"></div>
 
+    <footer>
+        <div class="footer">
+            <a target = "_blank" href="https://github.com/Expert0ne">Emanuel Gomes / </a>
+            <a target = "_blank" href="https://github.com/lencol-oxidavel">Marcelo Corrêa / </a>
+            <a target = "_blank" href="https://github.com/vinnyonline">Vinícius Jeffman / </a>
+            <a target = "_blank" href="https://github.com/BernardoNC07">Bernardo Nassr</a>
+        </div>
+    </footer>
+
     <div class="filter-bar">
-        <label>Filtrar por tempo:</label>
         <br>
         <button data-tempo="1" class="filter-btn active btn-index">1 Hora</button>
         <button data-tempo="24" class="filter-btn btn-index">1 Dia</button>
@@ -50,6 +58,8 @@ include_once "../includes/_connection.php";
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="../script/script.js"></script>
+
+    
 
 </body>
 </html>

@@ -20,13 +20,16 @@ body {
     height: 77vh;
     width: 100%;
 }
-@media screen and (max-width:600px) {
+@media screen and (max-width:999px) {
     #map {
         height: 70vh;
     }
+    .footer a {
+        font-size: 2.7vh;
+    }
     button {
         font-size: 2vh;
-        height: 6vh;
+        height: 5.5vh;
         font-weight: bold;
     }
     .leaflet-popup-close-button {
@@ -44,7 +47,7 @@ body {
     .leaflet-popup-content span {
         font-size: 2.4vh;
     }
-} @media screen and(min-width:600px){
+} @media screen and(min-width:1000px){
     button{
     height: 3.5vh;
 }
@@ -87,4 +90,22 @@ body {
     background: rgb(24, 127, 245);
     color: white;
     border: 0px;
+}
+
+.footer{
+    color: #ffff;
+     margin-top: -0.5px;        /* aproxima o footer do mapa */
+    padding-bottom: 0.5px;
+}
+
+.footer a,
+.footer a:visited,
+.footer a:hover,
+.footer a:active {
+    color: #ffffff !important;
+    text-decoration: none;
+}
+
+.filter-bar{
+     margin-top: -10px;
 }
