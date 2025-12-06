@@ -68,7 +68,7 @@ map.on("click", (e) => {
                 pinTemporario = null;
                 denunciaAtiva = false;
                 btnDenuncia.textContent = "Denúncia: OFF";
-                btnDenuncia.className = "btn-toggle desativado btn-toggle";
+                btnDenuncia.className = "btn-toggle desativado";
             };
         }
 
@@ -102,7 +102,7 @@ map.on("click", (e) => {
                     }
                     denunciaAtiva = false;
                     btnDenuncia.textContent = "Denúncia: OFF";
-                    btnDenuncia.className = "btn-toggle desativado btn-toggle";
+                    btnDenuncia.className = "btn-toggle desativado";
                 })
                 .catch(err => {
                     alert("Erro na requisição: " + err);
